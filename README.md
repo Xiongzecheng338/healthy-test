@@ -701,26 +701,7 @@ function calculateBMR(weight, height, age, gender) {
 
 ```
 MIT License
-
-Copyright (c) 2024 VitalityLab Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 ```
 
 ### 第三方资源
@@ -765,10 +746,9 @@ SOFTWARE.
 
 | 渠道 | 链接 | 响应时间 |
 |-----|------|---------|
-| GitHub Issues | [New Issue](https://github.com/yourusername/vitalitylab-pro/issues) | < 24h |
-| 邮件 | hello@vitalitylab.pro | < 48h |
-| 微信 | VitalityLab_Official | 工作日 |
-| 知乎 | [专栏](https://zhuanlan.zhihu.com/vitalitylab) | 每周更新 |
+| GitHub Issues | [New Issue](https://github.com/badhope/healthy-test/issues) | < 24h |
+| 邮件 |x18825407105@outlook.com | < 48h |
+
 
 ---
 
@@ -783,15 +763,3 @@ SOFTWARE.
 </p>
 ```
 
-这份README文档包含：
-
-1. **完整项目介绍**：使命、适用人群、核心特性
-2. **详细功能清单**：6大模块、30+功能点
-3. **技术架构说明**：零依赖设计、性能优化策略
-4. **科学原理附录**：所有计算公式、生化机制、数据来源
-5. **隐私保障**：技术实现细节、审计报告
-6. **使用指南**：操作流程、专业模式、快捷键
-7. **开发文档**：路线图、贡献流程、代码规范
-8. **法律信息**：MIT许可证、第三方资源声明
-
-文档采用标准开源项目结构，可直接用于GitHub仓库展示。
