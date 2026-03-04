@@ -236,10 +236,11 @@ wrangler pages deploy .
 vitalitylab-pro/
 ├── index.html          # 主入口，包含所有HTML结构
 ├── README.md           # 本文档
-└── assets/             # 可选资源目录
-    ├── icons/          # PWA图标
-    ├── screenshots/    # 展示图片
-    └── docs/           # 扩展文档
+├── css/                # 样式文件
+│   └── styles.css      # 主样式文件
+└── js/                 # JavaScript模块
+    ├── main.js         # 主应用模块
+    └── utils.js        # 工具函数模块
 ```
 
 ### 代码组织
