@@ -62,7 +62,7 @@ body {
 }
 
 /* 头部样式 */
-header {
+.home-header {
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem 0;
@@ -133,6 +133,10 @@ header {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
+}
+
+.card-header-content {
+  flex: 1;
 }
 
 .card-icon {
@@ -250,6 +254,13 @@ header {
 .btn-outline:hover {
   background: var(--primary);
   color: white;
+}
+
+/* 卡片操作区 */
+.card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 /* 仪表盘样式 */
@@ -404,7 +415,7 @@ header {
   background: rgba(255,255,255,0.1);
 }
 
-.sidebar-nav ul {
+.sidebar-nav {
   list-style: none;
 }
 
@@ -538,12 +549,72 @@ header {
 }
 
 /* 页脚样式 */
-footer {
+.footer {
   text-align: center;
   padding: 3rem 1rem;
   color: var(--text-light);
   border-top: 1px solid var(--border);
   margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-info {
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-link-group {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+}
+
+.footer-link-group h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.footer-link-group p,
+.footer-link-group a {
+  font-size: 0.875rem;
+}
+
+.footer-link-group a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.footer-link-group a:hover {
+  text-decoration: underline;
+}
+
+.footer-privacy {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 1rem;
 }
 
 /* 动画效果 */
@@ -617,6 +688,10 @@ footer {
 
 /* 首页样式 */
 .home-page {
+  display: block;
+}
+
+.hero-section {
   text-align: center;
   padding: 4rem 2rem;
 }
@@ -659,24 +734,28 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: var(--gradient-1);
-  color: white;
   box-shadow: var(--shadow);
 }
 
-.hero-button:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+.hero-button.primary {
+  background: var(--gradient-1);
+  color: white;
 }
 
 .hero-button.secondary {
   background: var(--gradient-4);
+  color: white;
 }
 
 .hero-button.outline {
   background: transparent;
   border: 2px solid var(--primary);
   color: var(--primary);
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-button.outline:hover {
@@ -745,6 +824,21 @@ footer {
 .privacy-toggle:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
+}
+
+.toggle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.toggle-subtitle {
+  font-size: 0.625rem;
+  opacity: 0.7;
 }
 
 .toggle-switch {
@@ -823,6 +917,16 @@ footer {
   .feature-cards {
     grid-template-columns: 1fr;
   }
+  
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-link-group {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 /* 滚动条样式 */
@@ -842,4 +946,393 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-light);
+}
+
+/* 人体解剖样式 */
+.body-visual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.body-svg {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.organ-info {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+}
+
+#organTitle {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#organDesc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* 推荐卡片 */
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.rec-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.rec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.rec-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.rec-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.rec-desc {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.rec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rec-tag {
+  background: var(--light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+/* 名言轮播 */
+.quote-carousel {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.quote-author {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* 像素人体样式 */
+.pixel-body-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pixel-body {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.organ-info-panel {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+}
+
+#pixelOrganTitle {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#pixelOrganDesc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.organ-metrics {
+  margin-top: 1rem;
+}
+
+/* 健康提醒样式 */
+.reminder-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.reminder-section:last-child {
+  border-bottom: none;
+}
+
+.reminder-section h3 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+.reminder-setting {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.reminder-setting label {
+  min-width: 100px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.reminder-status {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* 卡路里计算器样式 */
+.calorie-calculator {
+  margin-top: 1.5rem;
+}
+
+.calorie-calculator .input-group {
+  margin-bottom: 1rem;
+}
+
+.calorie-calculator .btn {
+  margin-bottom: 1.5rem;
+}
+
+.result {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.calorie-needs h3 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+/* 化学元素周期表 */
+.periodic-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.element {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background: white;
+}
+
+.element:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.element .atomic-number {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.element .symbol {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.element .name {
+  font-size: 0.625rem;
+  color: var(--text-light);
+}
+
+/* 消化系统时间轴 */
+.digestion-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid white;
+  box-shadow: var(--shadow);
+}
+
+.timeline-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.timeline-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content h4 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.timeline-content p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.timeline-meta {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* 信息框 */
+.info-box {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.info-box h4 {
+  color: #92400e;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.info-box p {
+  color: #78350f;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.formula {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: #1f2937;
+  overflow-x: auto;
+}
+
+/* 侧边栏切换按钮 */
+.sidebar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  color: white;
+  margin-right: 1rem;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* 图标样式 */
+.emoji {
+  font-size: 1.25rem;
+}
+
+.icon {
+  font-size: 1rem;
+  margin-right: 0.5rem;
 }
