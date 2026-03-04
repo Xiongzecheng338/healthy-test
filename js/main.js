@@ -1,5 +1,66 @@
-// 导入工具函数
-import { debounce, showToast, createConfetti } from './utils.js';
+// 工具函数
+function debounce(func, delay) {
+    let timeoutId;
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+// 显示提示信息
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2937;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        font-weight: 600;
+        z-index: 9999;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        animation: slide-up 0.3s ease-out;
+        max-width: 90%;
+        text-align: center;
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+
+// 创建彩带动画
+function createConfetti() {
+    const colors = ['#10b981', '#0ea5e9', '#f59e0b', '#ec4899', '#8b5cf6'];
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'fixed';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = '50%';
+        confetti.style.top = '50%';
+        confetti.style.borderRadius = '50%';
+        confetti.style.zIndex = '9999';
+        confetti.style.pointerEvents = 'none';
+        document.body.appendChild(confetti);
+        
+        const angle = (Math.PI * 2 * i) / 50;
+        const velocity = 200 + Math.random() * 200;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        confetti.animate([
+            { transform: 'translate(0,0) scale(1)', opacity: 1 },
+            { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+        ], {
+            duration: 1000 + Math.random() * 500,
+            easing: 'cubic-bezier(0, .9, .57, 1)'
+        }).onfinish = () => confetti.remove();
+    }
+}
 
 // 模块化架构
 const VitalityLab = {
@@ -21,7 +82,7 @@ const VitalityLab = {
             chemistry: '化学',
             digestion: '消化',
             recommend: '推荐',
-            title: 'VitalityLab Pro | 生命健康科学实验室',
+            title: 'Healthy-test | 健康测试平台',
             subtitle: '探索生命科学的无限可能 · 从分子到系统的健康全景',
             badges: {
                 evidence: '🌱 循证医学',
@@ -95,7 +156,7 @@ const VitalityLab = {
             chemistry: 'Chemistry',
             digestion: 'Digestion',
             recommend: 'Recommend',
-            title: 'VitalityLab Pro | Life Health Science Laboratory',
+            title: 'Healthy-test | Health Testing Platform',
             subtitle: 'Explore the infinite possibilities of life science · From molecules to system-wide health panorama',
             badges: {
                 evidence: '🌱 Evidence-based Medicine',
@@ -1321,8 +1382,309 @@ function getElementSources(symbol) {
     return sources[symbol] || '广泛存在于各类食物中';
 }
 
+// 详细内容数据库
+const detailedContent = {
+    '有氧训练计划': {
+        title: '🏃 有氧训练计划',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">根据美国心脏协会(AHA)建议，每周应进行至少150分钟中等强度有氧运动或75分钟高强度有氧运动。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>选择适合自己的有氧运动，如快走、跑步、游泳、骑行等</li>
+                <li>逐渐增加运动强度和时间，避免过度训练</li>
+                <li>保持规律的运动习惯，每周至少3-5次</li>
+                <li>运动前后进行适当的热身和拉伸</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国疾病控制与预防中心(CDC)统计，定期进行有氧运动可以：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>降低心血管疾病风险35-50%</li>
+                <li>降低2型糖尿病风险40%</li>
+                <li>提高心理健康水平，减少抑郁和焦虑</li>
+                <li>延长预期寿命3-5年</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：办公室白领</strong> - 每天利用午休时间快走30分钟，下班后骑行回家，周末进行游泳或球类运动。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：退休人士</strong> - 每天早晨进行30分钟太极或散步，下午参加社区舞蹈班，保持活跃的社交生活。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：高血压患者</strong> - 通过6个月的规律有氧运动（每天30分钟快走），血压从145/90mmHg降至125/80mmHg，减少了降压药物的使用。</p>
+        `
+    },
+    '抗阻训练': {
+        title: '🏋️ 抗阻训练',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">抗阻训练不仅可以增加肌肉质量，还能提高基础代谢率，改善胰岛素敏感性，对整体健康有显著益处。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每周进行2-3次抗阻训练，每次20-30分钟</li>
+                <li>重点训练复合动作：深蹲、硬拉、卧推、引体向上等</li>
+                <li>逐渐增加重量和组数，遵循渐进超负荷原则</li>
+                <li>确保正确的动作姿势，避免受伤</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国运动医学学会(ACSM)研究：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每周进行2次抗阻训练可以增加肌肉质量3-5%（3个月）</li>
+                <li>肌肉质量每增加1kg，基础代谢率提高约100kcal/天</li>
+                <li>抗阻训练可以提高骨密度，降低骨质疏松风险</li>
+                <li>老年人进行抗阻训练可以改善平衡能力，减少跌倒风险</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：大学生</strong> - 利用校园健身房，每周3次抗阻训练，每次30分钟，结合有氧运动。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：家庭主妇</strong> - 在家使用哑铃和阻力带进行训练，每天15-20分钟，利用碎片化时间。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：2型糖尿病前期</strong> - 通过3个月的抗阻训练（每周3次），胰岛素敏感性提高了28%，血糖水平明显改善。</p>
+        `
+    },
+    '热量赤字饮食': {
+        title: '🥗 热量赤字饮食',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">热量赤字是减脂的核心原理，但需要在保证营养均衡的前提下进行，避免过度节食对健康造成负面影响。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每天创造300-500kcal的热量赤字</li>
+                <li>蛋白质摄入：1.6-2.2g/kg体重</li>
+                <li>碳水化合物：40-50%总热量</li>
+                <li>脂肪：20-30%总热量</li>
+                <li>增加膳食纤维摄入，提高饱腹感</li>
+                <li>多喝水，每天至少2000ml</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国营养学会(AND)建议：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每周减重0.5-1kg是健康可持续的</li>
+                <li>过度节食（每天热量摄入低于1200kcal）会导致肌肉流失</li>
+                <li>蛋白质摄入不足会影响免疫系统功能</li>
+                <li>长期热量赤字需要定期监测营养状况</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：办公室白领</strong> - 早餐：燕麦+蛋白质奶昔；午餐：沙拉+鸡胸肉；晚餐：烤鱼+蔬菜。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：健身爱好者</strong> - 训练日增加碳水摄入，休息日减少碳水，保持蛋白质摄入稳定。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：肥胖症患者</strong> - 通过6个月的热量赤字饮食（每天500kcal赤字）结合运动，体重从85kg降至70kg，BMI从28降至23，各项健康指标明显改善。</p>
+        `
+    },
+    '热量盈余策略': {
+        title: '🥩 热量盈余策略',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">热量盈余是增肌的必要条件，但需要合理控制盈余幅度，避免过多脂肪堆积。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每天创造300-500kcal的热量盈余</li>
+                <li>蛋白质摄入：2.0-2.5g/kg体重</li>
+                <li>碳水化合物：50-60%总热量</li>
+                <li>脂肪：20-25%总热量</li>
+                <li>训练后30分钟内补充碳水+蛋白质（3:1或4:1）</li>
+                <li>增加餐次，每天4-6餐</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据国际运动营养学会(ISSN)研究：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>新手增肌阶段，每周可增加0.25-0.5kg肌肉</li>
+                <li>有经验的训练者，每周可增加0.1-0.25kg肌肉</li>
+                <li>训练后补充20-40g蛋白质可以最大化肌肉蛋白质合成</li>
+                <li>碳水化合物摄入不足会影响训练表现和恢复</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：健美运动员</strong> - 每天6餐，每餐包含蛋白质、碳水和健康脂肪，训练后立即补充营养。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：青少年运动员</strong> - 增加健康零食，如坚果、酸奶、蛋白质 bars，满足生长发育和训练需求。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：消瘦型青少年</strong> - 通过12周的热量盈余饮食和力量训练，体重从50kg增至58kg，肌肉质量明显增加，力量水平显著提高。</p>
+        `
+    },
+    '水合状态管理': {
+        title: '💧 水合状态管理',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">水是人体最重要的营养素之一，占体重的60%，对维持正常生理功能至关重要。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每天饮水量：35ml/kg体重</li>
+                <li>运动时每15-20分钟补充150-200ml水分</li>
+                <li>高温环境下增加饮水量</li>
+                <li>避免过度饮用含糖饮料</li>
+                <li>注意尿液颜色，保持淡黄色</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国国家科学院(NAS)建议：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>男性每天总水分摄入：3.7L（包括食物中的水分）</li>
+                <li>女性每天总水分摄入：2.7L（包括食物中的水分）</li>
+                <li>轻度脱水（体重减少1-2%）会影响认知功能和运动表现</li>
+                <li>严重脱水会导致肾功能损害和心血管问题</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：办公室工作者</strong> - 办公桌上放一个2L水壶，设定提醒，确保每天喝够水。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：运动员</strong> - 训练前2小时开始补水，训练中定期补水，训练后补充电解质饮料。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：慢性疲劳综合征</strong> - 通过增加水分摄入（每天3L），结合适当休息，疲劳症状明显改善，精力水平提高。</p>
+        `
+    },
+    '睡眠优化': {
+        title: '😴 睡眠优化',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">睡眠是身体恢复和修复的关键时期，对免疫系统、代谢和心理健康都有重要影响。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>保持规律的睡眠时间表，每天同一时间上床和起床</li>
+                <li>创造舒适的睡眠环境：黑暗、安静、凉爽（18-20℃）</li>
+                <li>睡前1小时避免使用电子设备</li>
+                <li>睡前避免咖啡因和 heavy meals</li>
+                <li>建立睡前放松 routine：阅读、冥想、深呼吸</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国睡眠医学会(AASM)建议：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>成年人每天需要7-9小时睡眠</li>
+                <li>青少年需要8-10小时睡眠</li>
+                <li>睡眠不足会增加肥胖、糖尿病和心血管疾病风险</li>
+                <li>深度睡眠期间生长激素分泌达到峰值，促进组织修复</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：IT工作者</strong> - 设定晚上10点手机自动进入勿扰模式，睡前阅读30分钟，确保11点前入睡。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2： shift worker</strong> - 利用黑色out窗帘，创造黑暗环境，白天补觉时避免噪音干扰。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：失眠症患者</strong> - 通过建立规律的睡眠习惯，避免睡前使用电子设备，结合放松技巧，睡眠质量明显改善，入睡时间从45分钟缩短至15分钟。</p>
+        `
+    },
+    '认知健康': {
+        title: '🧠 认知健康',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">认知健康对整体生活质量至关重要，通过适当的训练和生活方式可以保持和提高认知功能。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每天进行15-20分钟冥想或正念练习</li>
+                <li>保持大脑活跃：阅读、学习新技能、解决 puzzles</li>
+                <li>社交活动：与朋友和家人保持联系</li>
+                <li>健康饮食：富含 omega-3脂肪酸、抗氧化剂的食物</li>
+                <li>定期运动：每周至少150分钟中等强度运动</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国心脏协会(AHA)研究：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>冥想可以降低皮质醇水平15-20%</li>
+                <li>定期运动可以提高认知功能10-15%</li>
+                <li>社交活动可以降低认知 decline 风险</li>
+                <li>健康饮食可以减缓大脑 aging 进程</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：退休教师</strong> - 每天早晨进行15分钟冥想，参加社区读书俱乐部，学习绘画。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：大学生</strong> - 利用课间时间进行5分钟正念练习，周末参加志愿活动，保持社交活跃。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：轻度认知 impairment</strong> - 通过6个月的认知训练和生活方式改变，记忆力和注意力明显改善，日常生活能力提高。</p>
+        `
+    },
+    '抗氧化策略': {
+        title: '🧪 抗氧化策略',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">抗氧化剂可以中和自由基，减少氧化应激，对预防慢性疾病和延缓衰老有重要作用。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>增加富含抗氧化剂的食物摄入：蓝莓、菠菜、坚果、深色蔬菜</li>
+                <li>适量摄入茶和咖啡（富含多酚）</li>
+                <li>避免过度加工食品和油炸食品</li>
+                <li>减少环境毒素暴露</li>
+                <li>保持适当运动，避免过度训练</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国农业部(USDA)研究：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>抗氧化剂摄入量高的人群慢性疾病风险降低20-30%</li>
+                <li>蓝莓的抗氧化能力是其他水果的2-3倍</li>
+                <li>坚果中的抗氧化剂可以改善心血管健康</li>
+                <li>深色蔬菜中的叶绿素和类胡萝卜素具有强大的抗氧化作用</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：健康意识强的家庭</strong> - 每天摄入5种不同颜色的水果和蔬菜，每周食用坚果2-3次。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：健身爱好者</strong> - 训练后补充富含抗氧化剂的 smoothie，促进恢复。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：慢性炎症患者</strong> - 通过增加抗氧化食物摄入，炎症标志物降低了40%，症状明显改善。</p>
+        `
+    },
+    '维生素D补充': {
+        title: '🌞 维生素D补充',
+        content: `
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">专业分析报告</h3>
+            <p style="margin-bottom: 1rem;">维生素D对骨骼健康、免疫系统和心情调节至关重要，缺乏维生素D会导致多种健康问题。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">科学的生活方式指导</h4>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>每天15-20分钟阳光照射（10-14点）</li>
+                <li>食物来源： fatty fish、蛋黄、强化 dairy 产品</li>
+                <li>考虑补充剂：特别是在冬季或阳光不足的地区</li>
+                <li>定期检测维生素D水平</li>
+                <li>保持适当的钙摄入，与维生素D协同作用</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">权威机构数据</h4>
+            <p style="margin-bottom: 1rem;">根据美国国立卫生研究院(NIH)建议：</p>
+            <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                <li>成年人每天维生素D摄入量：600-800 IU</li>
+                <li>维生素D缺乏会增加骨质疏松风险</li>
+                <li>维生素D可以降低呼吸道感染风险</li>
+                <li>维生素D与情绪调节有关，缺乏可能导致抑郁</li>
+            </ul>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">日常生活场景案例</h4>
+            <p style="margin-bottom: 1rem;"><strong>案例1：办公室工作者</strong> - 每天午餐后在户外散步15分钟，周末进行户外活动。</p>
+            <p style="margin-bottom: 1rem;"><strong>案例2：北方居民</strong> - 冬季补充维生素D3，夏季通过阳光获取。</p>
+            
+            <h4 style="color: var(--secondary); margin-bottom: 0.75rem;">典型病例分析</h4>
+            <p style="margin-bottom: 1rem;"><strong>病例：骨质疏松前期</strong> - 通过增加阳光照射和维生素D补充，骨密度提高了5%，骨折风险降低。</p>
+        `
+    }
+};
+
 function showRecDetail(title) {
-    showToast(`已保存 "${title}" 到您的健康计划 📌`);
+    const content = detailedContent[title];
+    if (content) {
+        document.getElementById('modalBody').innerHTML = `
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">${content.title}</h2>
+            ${content.content}
+        `;
+        document.getElementById('modal').classList.add('active');
+    } else {
+        showToast(`已保存 "${title}" 到您的健康计划 📌`);
+    }
 }
 
 function closeModal(e) {
