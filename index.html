@@ -77,6 +77,36 @@
                     <span class="tab-text">健康提醒</span>
                 </button>
             </li>
+            <li>
+                <button class="sidebar-tab" data-tab="quiz">
+                    <span class="emoji">🧠</span>
+                    <span class="tab-text">知识问答</span>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-tab" data-tab="food-db">
+                    <span class="emoji">🍎</span>
+                    <span class="tab-text">食物百科</span>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-tab" data-tab="tracker">
+                    <span class="emoji">📈</span>
+                    <span class="tab-text">健康追踪</span>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-tab" data-tab="pet">
+                    <span class="emoji">🐾</span>
+                    <span class="tab-text">虚拟宠物</span>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-tab" data-tab="challenges">
+                    <span class="emoji">🏆</span>
+                    <span class="tab-text">健康挑战</span>
+                </button>
+            </li>
             <li class="sidebar-divider"></li>
             <li>
                 <button class="sidebar-tab" id="languageToggle">
@@ -556,6 +586,379 @@
             </div>
         </section>
 
+        <!-- 知识问答标签 -->
+        <section id="tab-quiz" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6, #a855f7);">🧠</div>
+                    <div class="card-header-content">
+                        <h2 class="card-title">健康知识问答挑战</h2>
+                        <p class="card-subtitle">测试你的健康知识水平，每日挑战赢徽章</p>
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-category-select">
+                        <h3>选择挑战类型</h3>
+                        <div class="category-buttons">
+                            <button class="btn btn-outline" data-category="nutrition">🍎 营养学</button>
+                            <button class="btn btn-outline" data-category="anatomy">🫀 解剖学</button>
+                            <button class="btn btn-outline" data-category="exercise">🏃 运动科学</button>
+                            <button class="btn btn-outline" data-category="sleep">😴 睡眠科学</button>
+                            <button class="btn btn-outline" data-category="mental">💚 心理健康</button>
+                            <button class="btn btn-primary" data-category="daily">📅 每日挑战</button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content" id="quizContent" style="display: none;">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quizProgress"></div>
+                            </div>
+                            <div class="quiz-stats">
+                                <span>题目：<span id="questionCount">1/10</span></span>
+                                <span>得分：<span id="quizScore">0</span></span>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <div class="question-header">
+                                <span class="difficulty-badge" id="questionDifficulty">简单</span>
+                                <span class="category-tag" id="questionCategory">营养学</span>
+                            </div>
+                            <h3 class="question-text" id="questionText">问题加载中...</h3>
+                            <div class="options-list" id="optionsList">
+                                <!-- 选项由 JS 生成 -->
+                            </div>
+                        </div>
+
+                        <div class="quiz-feedback" id="quizFeedback" style="display: none;">
+                            <div class="feedback-icon" id="feedbackIcon"></div>
+                            <h4 id="feedbackTitle"></h4>
+                            <p id="feedbackExplanation"></p>
+                            <div class="knowledge-point">
+                                <strong>💡 知识点：</strong>
+                                <span id="knowledgePoint"></span>
+                            </div>
+                            <button class="btn btn-primary" id="nextQuestionBtn">下一题</button>
+                        </div>
+
+                        <div class="quiz-result" id="quizResult" style="display: none;">
+                            <h3>挑战完成！</h3>
+                            <div class="result-stats">
+                                <div class="stat-box">
+                                    <div class="stat-value" id="finalScore">0</div>
+                                    <div class="stat-label">总分</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value" id="finalAccuracy">0%</div>
+                                    <div class="stat-label">正确率</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value" id="finalCorrect">0/10</div>
+                                    <div class="stat-label">答对题数</div>
+                                </div>
+                            </div>
+                            <div class="earned-badges" id="earnedBadges">
+                                <!-- 徽章由 JS 生成 -->
+                            </div>
+                            <button class="btn btn-primary" id="restartQuizBtn">再玩一次</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 食物百科标签 -->
+        <section id="tab-food-db" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">🍎</div>
+                    <div class="card-header-content">
+                        <h2 class="card-title">食物卡路里数据库</h2>
+                        <p class="card-subtitle">查询 500+ 种食物的详细营养信息</p>
+                    </div>
+                </div>
+
+                <div class="food-search-container">
+                    <div class="search-box">
+                        <input type="text" id="foodSearchInput" placeholder="搜索食物名称，如：苹果、米饭、鸡胸肉...">
+                        <button class="btn btn-primary" id="searchFoodBtn">🔍 搜索</button>
+                    </div>
+
+                    <div class="food-categories">
+                        <button class="category-btn active" data-category="all">全部</button>
+                        <button class="category-btn" data-category="fruits">🍎 水果</button>
+                        <button class="category-btn" data-category="vegetables">🥬 蔬菜</button>
+                        <button class="category-btn" data-category="grains">🍚 谷物</button>
+                        <button class="category-btn" data-category="meats">🥩 肉类</button>
+                        <button class="category-btn" data-category="seafood">🐟 海鲜</button>
+                    </div>
+
+                    <div class="food-results" id="foodResults">
+                        <!-- 食物结果由 JS 生成 -->
+                    </div>
+                </div>
+
+                <div class="food-detail-modal" id="foodDetailModal" style="display: none;">
+                    <div class="modal-content">
+                        <button class="modal-close" id="closeFoodDetail">✕</button>
+                        <h2 id="foodDetailName"></h2>
+                        <div class="food-nutrition-grid">
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodCalories"></div>
+                                <div class="nutrition-label">卡路里 (kcal/100g)</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodProtein"></div>
+                                <div class="nutrition-label">蛋白质 (g)</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodFat"></div>
+                                <div class="nutrition-label">脂肪 (g)</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodCarbs"></div>
+                                <div class="nutrition-label">碳水 (g)</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodFiber"></div>
+                                <div class="nutrition-label">纤维 (g)</div>
+                            </div>
+                            <div class="nutrition-item">
+                                <div class="nutrition-value" id="foodGI"></div>
+                                <div class="nutrition-label">GI 值</div>
+                            </div>
+                        </div>
+                        <div class="food-vitamins" id="foodVitamins">
+                            <!-- 维生素信息由 JS 生成 -->
+                        </div>
+                        <div class="food-calculator">
+                            <h3>卡路里计算器</h3>
+                            <div class="input-group">
+                                <label>重量 (g):</label>
+                                <input type="number" id="foodWeightCalc" value="100" min="1">
+                            </div>
+                            <div class="calculated-result" id="calculatedResult">
+                                <!-- 计算结果由 JS 生成 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 健康追踪标签 -->
+        <section id="tab-tracker" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b, #f97316);">📈</div>
+                    <div class="card-header-content">
+                        <h2 class="card-title">健康目标追踪</h2>
+                        <p class="card-subtitle">记录你的健康数据，见证进步轨迹</p>
+                    </div>
+                </div>
+
+                <div class="tracker-dashboard">
+                    <div class="tracker-cards">
+                        <div class="tracker-card">
+                            <div class="tracker-icon">💧</div>
+                            <h3>饮水追踪</h3>
+                            <div class="tracker-value" id="waterIntake">0/2000ml</div>
+                            <div class="water-buttons">
+                                <button class="btn btn-outline" data-amount="250">+250ml</button>
+                                <button class="btn btn-outline" data-amount="500">+500ml</button>
+                            </div>
+                            <button class="btn btn-primary" id="resetWaterBtn">重置</button>
+                        </div>
+
+                        <div class="tracker-card">
+                            <div class="tracker-icon">👟</div>
+                            <h3>步数追踪</h3>
+                            <div class="tracker-value" id="stepCount">0/10000 步</div>
+                            <input type="number" id="stepInput" placeholder="输入步数" class="tracker-input">
+                            <button class="btn btn-primary" id="updateStepsBtn">更新</button>
+                        </div>
+
+                        <div class="tracker-card">
+                            <div class="tracker-icon">⚖️</div>
+                            <h3>体重记录</h3>
+                            <div class="tracker-value" id="weightRecord">-- kg</div>
+                            <div class="input-group">
+                                <input type="number" id="weightInput" placeholder="体重 (kg)" step="0.1">
+                                <button class="btn btn-primary" id="saveWeightBtn">保存</button>
+                            </div>
+                        </div>
+
+                        <div class="tracker-card">
+                            <div class="tracker-icon">😴</div>
+                            <h3>睡眠记录</h3>
+                            <div class="tracker-value" id="sleepRecord">-- 小时</div>
+                            <div class="input-group">
+                                <input type="number" id="sleepInput" placeholder="睡眠时长 (小时)" step="0.5">
+                                <button class="btn btn-primary" id="saveSleepBtn">保存</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tracker-charts">
+                        <div class="chart-box">
+                            <h3>📊 体重变化趋势</h3>
+                            <canvas id="weightTrendChart"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <h3>💧 每日饮水量</h3>
+                            <canvas id="waterChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="achievements-section">
+                        <h3>🏆 成就徽章</h3>
+                        <div class="badges-grid" id="badgesGrid">
+                            <!-- 徽章由 JS 生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 虚拟宠物标签 -->
+        <section id="tab-pet" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">🐾</div>
+                    <div class="card-header-content">
+                        <h2 class="card-title">虚拟健康宠物</h2>
+                        <p class="card-subtitle">培养你的健康伙伴，见证成长进化</p>
+                    </div>
+                </div>
+
+                <div class="pet-container">
+                    <!-- 宠物选择界面 -->
+                    <div class="pet-selection" id="petSelection">
+                        <h3>选择你的宠物伙伴</h3>
+                        <div class="pet-avatars" id="petAvatars">
+                            <!-- 由 JS 生成宠物选项 -->
+                        </div>
+                        <button class="btn btn-primary" id="confirmPetSelection">开始健康之旅</button>
+                    </div>
+
+                    <!-- 宠物主界面 -->
+                    <div class="pet-main" id="petMain" style="display: none;">
+                        <div class="pet-display">
+                            <div class="pet-stage" id="petStage">
+                                <div class="pet-avatar" id="petAvatar">🧬</div>
+                                <div class="pet-expression" id="petExpression">😊</div>
+                            </div>
+                            <div class="pet-info">
+                                <h3 id="petStageName">细胞阶段</h3>
+                                <div class="pet-stats">
+                                    <div class="stat">
+                                        <span class="stat-icon">❤️</span>
+                                        <span class="stat-value" id="petHealth">100</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-icon">⚡</span>
+                                        <span class="stat-value" id="petEnergy">100</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-icon">😊</span>
+                                        <span class="stat-value" id="petHappiness">100</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-icon">⭐</span>
+                                        <span class="stat-value" id="petExperience">0</span>
+                                    </div>
+                                </div>
+                                <div class="pet-level">
+                                    <span>等级：<span id="petLevel">1</span></span>
+                                    <div class="exp-bar">
+                                        <div class="exp-fill" id="expFill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pet-actions">
+                            <h3>与宠物互动</h3>
+                            <div class="action-buttons">
+                                <button class="action-btn" data-action="feed">
+                                    <span class="action-icon">🍎</span>
+                                    <span class="action-name">喂食</span>
+                                </button>
+                                <button class="action-btn" data-action="exercise">
+                                    <span class="action-icon">🏃</span>
+                                    <span class="action-name">运动</span>
+                                </button>
+                                <button class="action-btn" data-action="rest">
+                                    <span class="action-icon">😴</span>
+                                    <span class="action-name">休息</span>
+                                </button>
+                                <button class="action-btn" data-action="learn">
+                                    <span class="action-icon">📚</span>
+                                    <span class="action-name">学习</span>
+                                </button>
+                                <button class="action-btn" data-action="play">
+                                    <span class="action-icon">🎮</span>
+                                    <span class="action-name">玩耍</span>
+                                </button>
+                                <button class="action-btn" data-action="clean">
+                                    <span class="action-icon">🧹</span>
+                                    <span class="action-name">清洁</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pet-tips">
+                            <h3>小贴士</h3>
+                            <div id="petTipText">照顾好你的宠物，它会健康成长！</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 健康挑战标签 -->
+        <section id="tab-challenges" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">🏆</div>
+                    <div class="card-header-content">
+                        <h2 class="card-title">健康挑战赛</h2>
+                        <p class="card-subtitle">挑战自我，成就更好的你</p>
+                    </div>
+                </div>
+
+                <div class="challenges-container">
+                    <!-- 挑战分类 -->
+                    <div class="challenge-categories" id="challengeCategories">
+                        <!-- 由 JS 生成分类按钮 -->
+                    </div>
+
+                    <!-- 挑战列表 -->
+                    <div class="challenge-list" id="challengeList">
+                        <!-- 由 JS 生成挑战卡片 -->
+                    </div>
+
+                    <!-- 进行中的挑战 -->
+                    <div class="active-challenges" id="activeChallenges" style="display: none;">
+                        <h3>🔥 进行中的挑战</h3>
+                        <div class="active-challenge-cards" id="activeChallengeCards">
+                            <!-- 由 JS 生成进行中的挑战 -->
+                        </div>
+                    </div>
+
+                    <!-- 已完成挑战 -->
+                    <div class="completed-challenges" id="completedChallenges">
+                        <h3>✅ 已完成挑战</h3>
+                        <div class="completed-challenge-cards" id="completedChallengeCards">
+                            <!-- 由 JS 生成已完成的挑战 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 健康提醒标签 -->
         <section id="tab-reminders" class="tab-content">
             <div class="card">
@@ -673,6 +1076,13 @@
         </div>
     </div>
 
+    <script src="js/data/foods.js"></script>
+    <script src="js/data/organs.js"></script>
+    <script src="js/data/quizzes.js"></script>
+    <script src="js/data/pets.js"></script>
+    <script src="js/data/challenges.js"></script>
+    <script src="js/modules/newFeatures.js"></script>
+    <script src="js/modules/extendedFeatures.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

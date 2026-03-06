@@ -1,0 +1,249 @@
+/**
+ * UI 组件库 - Toast 通知组件
+ */
+
+/* ==========================================================================
+   Toast 容器
+   ========================================================================== */
+
+.toast-container {
+    position: fixed;
+    top: calc(var(--spacing-4) + var(--safe-area-inset-top));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    max-width: calc(100vw - var(--spacing-4));
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Toast 基础样式
+   ========================================================================== */
+
+.toast-notification {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-4) var(--spacing-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2xl);
+    border: var(--border);
+    pointer-events: auto;
+    min-width: 300px;
+    max-width: 500px;
+    animation: slide-down 0.3s ease-out;
+    overflow: hidden;
+}
+
+.toast-notification.toast-success {
+    border-left: var(--border-width-4) solid var(--success);
+}
+
+.toast-notification.toast-error {
+    border-left: var(--border-width-4) solid var(--danger);
+}
+
+.toast-notification.toast-warning {
+    border-left: var(--border-width-4) solid var(--warning);
+}
+
+.toast-notification.toast-info {
+    border-left: var(--border-width-4) solid var(--info);
+}
+
+/* ==========================================================================
+   Toast 内容
+   ========================================================================== */
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex: 1;
+}
+
+.toast-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    line-height: var(--leading-normal);
+}
+
+.toast-close {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.toast-close:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Toast 进度条
+   ========================================================================== */
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--border-secondary);
+    overflow: hidden;
+}
+
+.toast-progress-bar {
+    height: 100%;
+    background: var(--primary-500);
+    animation: toast-progress linear forwards;
+}
+
+.toast-success .toast-progress-bar {
+    background: var(--success);
+}
+
+.toast-error .toast-progress-bar {
+    background: var(--danger);
+}
+
+.toast-warning .toast-progress-bar {
+    background: var(--warning);
+}
+
+.toast-info .toast-progress-bar {
+    background: var(--info);
+}
+
+@keyframes toast-progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* ==========================================================================
+   Toast 位置变体
+   ========================================================================== */
+
+.toast-top-left {
+    top: calc(var(--spacing-4) + var(--safe-area-inset-top));
+    left: calc(var(--spacing-4) + var(--safe-area-inset-left));
+    transform: none;
+}
+
+.toast-top-right {
+    top: calc(var(--spacing-4) + var(--safe-area-inset-top));
+    right: calc(var(--spacing-4) + var(--safe-area-inset-right));
+    left: auto;
+    transform: none;
+}
+
+.toast-bottom-left {
+    bottom: calc(var(--spacing-4) + var(--safe-area-inset-bottom));
+    top: auto;
+    left: calc(var(--spacing-4) + var(--safe-area-inset-left));
+    transform: none;
+}
+
+.toast-bottom-right {
+    bottom: calc(var(--spacing-4) + var(--safe-area-inset-bottom));
+    top: auto;
+    right: calc(var(--spacing-4) + var(--safe-area-inset-right));
+    left: auto;
+    transform: none;
+}
+
+.toast-top-center {
+    top: calc(var(--spacing-4) + var(--safe-area-inset-top));
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toast-bottom-center {
+    bottom: calc(var(--spacing-4) + var(--safe-area-inset-bottom));
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ==========================================================================
+   Toast 动画
+   ========================================================================== */
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.toast-exit {
+    animation: slide-up 0.3s ease-out forwards;
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@media (max-width: 639px) {
+    .toast-notification {
+        min-width: auto;
+        width: calc(100vw - var(--spacing-8));
+        max-width: none;
+    }
+    
+    .toast-container {
+        width: 100%;
+        max-width: none;
+        padding: 0 var(--spacing-4);
+    }
+}
+
+/* ==========================================================================
+   暗黑模式适配
+   ========================================================================== */
+
+[data-theme="dark"] .toast-notification {
+    background: var(--bg-card);
+    border-color: var(--border-primary);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}

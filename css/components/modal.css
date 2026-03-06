@@ -1,0 +1,404 @@
+/**
+ * UI 组件库 - 模态框组件
+ */
+
+/* ==========================================================================
+   模态框容器
+   ========================================================================== */
+
+.modal-container {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-4);
+}
+
+/* ==========================================================================
+   模态框遮罩
+   ========================================================================== */
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ==========================================================================
+   模态框主体
+   ========================================================================== */
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    max-width: 500px;
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+    animation: scale-in 0.3s ease-out;
+}
+
+.modal-content-sm {
+    max-width: 400px;
+}
+
+.modal-content-lg {
+    max-width: 700px;
+}
+
+.modal-content-xl {
+    max-width: 900px;
+}
+
+.modal-content-full {
+    max-width: calc(100vw - var(--spacing-8));
+    max-height: calc(100vh - var(--spacing-8));
+}
+
+/* ==========================================================================
+   模态框头部
+   ========================================================================== */
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-6);
+    border-bottom: var(--border);
+    flex-shrink: 0;
+}
+
+.modal-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: var(--leading-tight);
+}
+
+.modal-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-1);
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.modal-close-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================================================
+   模态框内容区
+   ========================================================================== */
+
+.modal-body {
+    flex: 1;
+    padding: var(--spacing-6);
+    overflow-y: auto;
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.modal-body-no-padding {
+    padding: 0;
+}
+
+/* ==========================================================================
+   模态框底部
+   ========================================================================== */
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-3);
+    padding: var(--spacing-6);
+    border-top: var(--border);
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+}
+
+.modal-footer-no-border {
+    border-top: none;
+}
+
+.modal-footer-center {
+    justify-content: center;
+}
+
+.modal-footer-stretch {
+    justify-content: space-between;
+}
+
+/* ==========================================================================
+   模态框尺寸
+   ========================================================================== */
+
+.modal-sm .modal-content {
+    max-width: 400px;
+}
+
+.modal-md .modal-content {
+    max-width: 500px;
+}
+
+.modal-lg .modal-content {
+    max-width: 700px;
+}
+
+.modal-xl .modal-content {
+    max-width: 900px;
+}
+
+.modal-full .modal-content {
+    max-width: calc(100vw - var(--spacing-8));
+    max-height: calc(100vh - var(--spacing-8));
+}
+
+/* ==========================================================================
+   模态框变体
+   ========================================================================== */
+
+/* 居中模态框 */
+.modal-centered {
+    text-align: center;
+}
+
+.modal-centered .modal-content {
+    text-align: center;
+}
+
+.modal-centered .modal-header,
+.modal-centered .modal-footer {
+    justify-content: center;
+}
+
+/* 无遮罩模态框 */
+.modal-no-overlay .modal-overlay {
+    display: none;
+}
+
+/* 可滚动模态框 */
+.modal-scrollable .modal-content {
+    max-height: calc(100vh - var(--spacing-8));
+}
+
+.modal-scrollable .modal-body {
+    overflow-y: auto;
+}
+
+/* 全屏模态框 */
+.modal-fullscreen .modal-content {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 侧边模态框 */
+.modal-side {
+    justify-content: flex-end;
+}
+
+.modal-side .modal-content {
+    max-width: 400px;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    animation: slide-left 0.3s ease-out;
+}
+
+.modal-side-left .modal-content {
+    animation: slide-right 0.3s ease-out;
+}
+
+/* 底部模态框 */
+.modal-bottom {
+    align-items: flex-end;
+}
+
+.modal-bottom .modal-content {
+    max-height: 90vh;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    animation: slide-up 0.3s ease-out;
+}
+
+/* ==========================================================================
+   模态框动画
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-exit {
+    animation: scale-out 0.3s ease-out;
+}
+
+@keyframes scale-out {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   模态框中的表单元素
+   ========================================================================== */
+
+.modal-body .form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.modal-body .form-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.modal-body .form-input {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--text-base);
+    border: var(--border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-fast);
+}
+
+.modal-body .form-input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* ==========================================================================
+   模态框网格布局
+   ========================================================================== */
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-4);
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@media (max-width: 639px) {
+    .modal-container {
+        padding: var(--spacing-2);
+        align-items: flex-end;
+    }
+    
+    .modal-content {
+        max-width: 100% !important;
+        max-height: 90vh !important;
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0 !important;
+    }
+    
+    .modal-footer {
+        flex-direction: column-reverse;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   暗黑模式适配
+   ========================================================================== */
+
+[data-theme="dark"] .modal-content {
+    background: var(--bg-card);
+    border-color: var(--border-primary);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .modal-footer {
+    background: var(--bg-secondary);
+}

@@ -1,0 +1,472 @@
+/**
+ * UI 组件库 - 表单组件
+ * 输入框、选择框、复选框等表单元素
+ */
+
+/* ==========================================================================
+   表单组
+   ========================================================================== */
+
+.form-group {
+    margin-bottom: var(--spacing-6);
+}
+
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+/* ==========================================================================
+   表单标签
+   ========================================================================== */
+
+.form-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+    line-height: var(--leading-tight);
+}
+
+.form-label-required::before {
+    content: '*';
+    color: var(--danger);
+    margin-right: var(--spacing-1);
+}
+
+.form-label-optional {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    font-weight: var(--font-normal);
+    margin-left: var(--spacing-2);
+}
+
+.form-label-description {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    margin-top: var(--spacing-1);
+    font-weight: var(--font-normal);
+}
+
+/* ==========================================================================
+   输入框基础样式
+   ========================================================================== */
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: var(--border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.form-input:hover:not(:disabled):not(:read-only) {
+    border-color: var(--border-secondary);
+}
+
+.form-input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-input:disabled,
+.form-input:read-only {
+    background: var(--bg-secondary);
+    cursor: not-allowed;
+    opacity: var(--opacity-70);
+}
+
+/* ==========================================================================
+   输入框尺寸
+   ========================================================================== */
+
+.form-input-sm {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+}
+
+.form-input-lg {
+    padding: var(--spacing-4) var(--spacing-5);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-xl);
+}
+
+/* ==========================================================================
+   输入框变体
+   ========================================================================== */
+
+/* 带图标的输入框 */
+.form-input-icon {
+    position: relative;
+}
+
+.form-input-icon .form-input {
+    padding-left: var(--spacing-10);
+}
+
+.form-input-icon .input-icon {
+    position: absolute;
+    left: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+    font-size: var(--text-lg);
+}
+
+.form-input-icon-right .form-input {
+    padding-right: var(--spacing-10);
+}
+
+.form-input-icon-right .input-icon {
+    left: auto;
+    right: var(--spacing-3);
+}
+
+/* 带前缀/后缀的输入框 */
+.form-input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.form-input-group .form-input {
+    flex: 1;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.form-input-group .input-addon {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: var(--border);
+    border-left: none;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.form-input-group .form-input:first-child {
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.form-input-group .form-input:last-child {
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* 错误状态 */
+.form-input-error {
+    border-color: var(--danger);
+}
+
+.form-input-error:focus {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-error-message {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-2);
+    font-size: var(--text-sm);
+    color: var(--danger);
+}
+
+/* 成功状态 */
+.form-input-success {
+    border-color: var(--success);
+}
+
+.form-input-success:focus {
+    border-color: var(--success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* ==========================================================================
+   文本域
+   ========================================================================== */
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: var(--font-sans);
+}
+
+.form-textarea-sm {
+    min-height: 60px;
+}
+
+.form-textarea-lg {
+    min-height: 160px;
+}
+
+/* ==========================================================================
+   选择框
+   ========================================================================== */
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-3) center;
+    background-size: 1.25rem;
+    padding-right: var(--spacing-10);
+}
+
+.form-select-multiple {
+    background-image: none;
+    padding-right: var(--spacing-4);
+}
+
+/* ==========================================================================
+   复选框和单选框
+   ========================================================================== */
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--primary-600);
+}
+
+.form-check-label {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.form-check-description {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-1);
+}
+
+/* 开关样式 */
+.form-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.form-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+}
+
+.form-switch-slider::before {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-switch input:checked + .form-switch-slider {
+    background: var(--primary-600);
+}
+
+.form-switch input:checked + .form-switch-slider::before {
+    transform: translateX(24px);
+}
+
+.form-switch input:focus + .form-switch-slider {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* ==========================================================================
+   范围滑块
+   ========================================================================== */
+
+.form-range {
+    width: 100%;
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-600);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-fast);
+}
+
+.form-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.form-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-600);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+.form-range-value {
+    display: inline-block;
+    margin-top: var(--spacing-2);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   文件上传
+   ========================================================================== */
+
+.form-file {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.form-file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.form-file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-6);
+    background: var(--bg-secondary);
+    border: var(--border-dashed, 2px dashed var(--border-secondary));
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.form-file-label:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary-500);
+}
+
+/* ==========================================================================
+   输入框组
+   ========================================================================== */
+
+.form-group {
+    position: relative;
+}
+
+/* 浮动标签 */
+.form-floating {
+    position: relative;
+}
+
+.form-floating .form-input {
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-3);
+}
+
+.form-floating .form-label {
+    position: absolute;
+    left: var(--spacing-4);
+    top: var(--spacing-4);
+    transition: var(--transition-base);
+    pointer-events: none;
+    transform-origin: left top;
+}
+
+.form-floating .form-input:focus ~ .form-label,
+.form-floating .form-input:not(:placeholder-shown) ~ .form-label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--primary-600);
+    font-weight: var(--font-medium);
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@media (max-width: 639px) {
+    .form-group-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .form-input-group {
+        flex-direction: column;
+    }
+    
+    .form-input-group .input-addon {
+        border-left: var(--border);
+        border-top: none;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+}
+
+/* ==========================================================================
+   暗黑模式适配
+   ========================================================================== */
+
+[data-theme="dark"] .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .form-switch-slider {
+    background: var(--gray-600);
+}
+
+[data-theme="dark"] .form-range {
+    background: var(--gray-600);
+}

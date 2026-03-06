@@ -1336,3 +1336,1012 @@ body {
   font-size: 1rem;
   margin-right: 0.5rem;
 }
+
+/* ==================== 问答系统样式 ==================== */
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-category-select h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.category-buttons .btn {
+  min-width: 140px;
+}
+
+.quiz-progress {
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--light);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-1);
+  transition: width 0.3s ease;
+  width: 0;
+}
+
+.quiz-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.question-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.difficulty-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--light);
+}
+
+.category-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--gradient-1);
+  color: white;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.option-btn {
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius);
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.option-btn:hover {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.05);
+  transform: translateX(5px);
+}
+
+.quiz-feedback {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.feedback-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#feedbackTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#feedbackExplanation {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.knowledge-point {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.quiz-result {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.quiz-result h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.earned-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.earned-badge {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  min-width: 120px;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.badge-desc {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ==================== 食物百科样式 ==================== */
+.food-search-container {
+  max-width: 1200px;
+}
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.food-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+
+.category-btn:hover {
+  border-color: var(--primary);
+}
+
+.category-btn.active {
+  background: var(--gradient-1);
+  color: white;
+  border-color: var(--primary);
+}
+
+.food-results {
+  display: grid;
+  gap: 2rem;
+}
+
+.food-category-section h3 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1.25rem;
+}
+
+.foods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.food-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.food-name {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.food-calories {
+  font-size: 0.875rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-light);
+  padding: 3rem;
+}
+
+/* 食物详情弹窗 */
+.food-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.food-detail-modal .modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.food-nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.nutrition-item {
+  text-align: center;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: var(--border-radius);
+}
+
+.nutrition-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.nutrition-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.food-vitamins {
+  margin: 2rem 0;
+}
+
+.food-vitamins h3 {
+  margin-bottom: 1rem;
+}
+
+.vitamin-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.vitamin-item:last-child {
+  border-bottom: none;
+}
+
+.food-calculator {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+
+.food-calculator h3 {
+  margin-bottom: 1rem;
+}
+
+.calculated-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--light);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.calorie-highlight {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}
+
+/* ==================== 健康追踪器样式 ==================== */
+.tracker-dashboard {
+  max-width: 1200px;
+}
+
+.tracker-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tracker-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.tracker-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tracker-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tracker-card h3 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.tracker-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.water-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tracker-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.tracker-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.achievements-section {
+  margin-top: 3rem;
+}
+
+.achievements-section h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.badge-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+  min-width: 150px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  .food-nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .result-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tracker-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .category-buttons {
+    flex-direction: column;
+  }
+
+  .category-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* ==================== 虚拟宠物系统样式 ==================== */
+.pet-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pet-selection {
+  text-align: center;
+  padding: 2rem;
+}
+
+.pet-selection h3 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.pet-avatars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pet-avatar-option {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 3px solid transparent;
+}
+
+.pet-avatar-option:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pet-avatar-option.selected {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.avatar-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+}
+
+.avatar-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* 宠物主界面 */
+.pet-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2rem;
+}
+
+.pet-stage {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.pet-avatar {
+  width: 100%;
+  height: 100%;
+  font-size: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.pet-expression {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 3rem;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.pet-info {
+  text-align: center;
+  width: 100%;
+}
+
+.pet-info h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+
+.pet-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pet-stats .stat {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.pet-level {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.pet-level > span {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.exp-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.exp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s ease;
+}
+
+/* 宠物互动 */
+.pet-actions {
+  padding: 2rem;
+}
+
+.pet-actions h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.action-btn {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn:hover {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+}
+
+.action-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.pet-tips {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  margin-top: 2rem;
+}
+
+.pet-tips h3 {
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+#petTipText {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==================== 健康挑战赛系统样式 ==================== */
+.challenges-container {
+  max-width: 1200px;
+}
+
+.challenge-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-categories .category-btn {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.challenge-categories .category-btn:hover {
+  border-color: var(--primary);
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.challenge-categories .category-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.challenge-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.challenge-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.challenge-card.completed {
+  border-color: var(--success);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.challenge-icon {
+  font-size: 3rem;
+}
+
+.challenge-info {
+  flex: 1;
+}
+
+.challenge-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.challenge-difficulty {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.challenge-description {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.challenge-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.challenge-duration,
+.challenge-reward {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.start-challenge-btn {
+  width: 100%;
+}
+
+/* 进行中的挑战 */
+.active-challenges {
+  margin-bottom: 3rem;
+}
+
+.active-challenges h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.active-challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.active-challenge-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.active-challenge-card .challenge-icon {
+  font-size: 4rem;
+}
+
+.challenge-content {
+  flex: 1;
+}
+
+.challenge-content h4 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.challenge-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.complete-challenge-btn {
+  width: 100%;
+}
+
+/* 已完成的挑战 */
+.completed-challenges h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.completed-challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.challenge-card .challenge-status {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.challenge-date {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .pet-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .challenge-categories {
+    justify-content: center;
+  }
+
+  .challenge-list {
+    grid-template-columns: 1fr;
+  }
+
+  .active-challenge-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}

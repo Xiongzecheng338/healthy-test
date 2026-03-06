@@ -1,0 +1,387 @@
+/**
+ * UI 组件库 - 按钮组件
+ * 统一风格的按钮样式
+ */
+
+/* ==========================================================================
+   基础按钮样式
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-normal);
+    text-decoration: none;
+    white-space: nowrap;
+    border: var(--border-width-1) solid transparent;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: var(--transition-base);
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+    box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px var(--border-focus);
+}
+
+.btn:disabled {
+    opacity: var(--opacity-50);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 图标按钮 */
+.btn .btn-icon {
+    width: 1em;
+    height: 1em;
+    font-size: 1.25em;
+}
+
+/* ==========================================================================
+   按钮尺寸
+   ========================================================================== */
+
+.btn-xs {
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--text-xs);
+    line-height: var(--leading-none);
+    border-radius: var(--radius-md);
+}
+
+.btn-sm {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+}
+
+.btn-md {
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-lg);
+}
+
+.btn-lg {
+    padding: var(--spacing-4) var(--spacing-8);
+    font-size: var(--text-base);
+    border-radius: var(--radius-xl);
+}
+
+.btn-xl {
+    padding: var(--spacing-5) var(--spacing-10);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-2xl);
+}
+
+/* ==========================================================================
+   主色按钮 (Primary)
+   ========================================================================== */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: white;
+    box-shadow: var(--shadow-md), var(--shadow-primary);
+    border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-primary);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   次要按钮 (Secondary)
+   ========================================================================== */
+
+.btn-secondary {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--border-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:active:not(:disabled) {
+    background: var(--bg-tertiary);
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   成功按钮 (Success)
+   ========================================================================== */
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success), var(--success-dark));
+    color: white;
+    box-shadow: var(--shadow-md), var(--shadow-success);
+    border: none;
+}
+
+.btn-success:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-success);
+}
+
+/* ==========================================================================
+   警告按钮 (Warning)
+   ========================================================================== */
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning), var(--warning-dark));
+    color: white;
+    box-shadow: var(--shadow-md), var(--shadow-warning);
+    border: none;
+}
+
+.btn-warning:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-warning);
+}
+
+/* ==========================================================================
+   危险按钮 (Danger)
+   ========================================================================== */
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+    color: white;
+    box-shadow: var(--shadow-md), var(--shadow-danger);
+    border: none;
+}
+
+.btn-danger:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-danger);
+}
+
+/* ==========================================================================
+   信息按钮 (Info)
+   ========================================================================== */
+
+.btn-info {
+    background: linear-gradient(135deg, var(--info), var(--info-dark));
+    color: white;
+    box-shadow: var(--shadow-md), var(--shadow-info);
+    border: none;
+}
+
+.btn-info:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-info);
+}
+
+/* ==========================================================================
+    outline 按钮
+   ========================================================================== */
+
+.btn-outline-primary {
+    background: transparent;
+    color: var(--primary-600);
+    border: var(--border-width-2) solid var(--primary-600);
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+    background: var(--primary-50);
+    color: var(--primary-700);
+    border-color: var(--primary-700);
+    transform: translateY(-1px);
+}
+
+.btn-outline-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: var(--border-width-2) solid var(--border-secondary);
+}
+
+.btn-outline-secondary:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
+}
+
+/* ==========================================================================
+   幽灵按钮 (Ghost)
+   ========================================================================== */
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border: transparent;
+    box-shadow: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.btn-ghost:active:not(:disabled) {
+    background: var(--bg-tertiary);
+}
+
+/* ==========================================================================
+   链接按钮 (Link)
+   ========================================================================== */
+
+.btn-link {
+    background: transparent;
+    color: var(--text-link);
+    border: transparent;
+    box-shadow: none;
+    padding: var(--spacing-1) var(--spacing-2);
+    text-decoration: underline;
+}
+
+.btn-link:hover:not(:disabled) {
+    color: var(--text-link-hover);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   按钮组
+   ========================================================================== */
+
+.btn-group {
+    display: inline-flex;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-group .btn {
+    border-radius: 0;
+    margin: 0;
+}
+
+.btn-group .btn:first-child {
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+}
+
+.btn-group .btn:last-child {
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+
+.btn-group .btn:not(:last-child) {
+    border-right: var(--border);
+}
+
+/* ==========================================================================
+   加载状态按钮
+   ========================================================================== */
+
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+.btn-loading.btn-xs::after {
+    width: 0.75em;
+    height: 0.75em;
+}
+
+.btn-loading.btn-sm::after {
+    width: 1em;
+    height: 1em;
+}
+
+.btn-loading.btn-lg::after {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+/* ==========================================================================
+    IconButton
+   ========================================================================== */
+
+.btn-icon-only {
+    padding: var(--spacing-2);
+    aspect-ratio: 1;
+}
+
+.btn-icon-only.btn-xs {
+    padding: var(--spacing-1);
+}
+
+.btn-icon-only.btn-sm {
+    padding: var(--spacing-1.5);
+}
+
+.btn-icon-only.btn-lg {
+    padding: var(--spacing-3);
+}
+
+.btn-icon-only.btn-xl {
+    padding: var(--spacing-4);
+}
+
+/* ==========================================================================
+   按钮块级
+   ========================================================================== */
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+/* ==========================================================================
+   暗黑模式适配
+   ========================================================================== */
+
+[data-theme="dark"] .btn-primary {
+    box-shadow: var(--shadow-md), 0 4px 14px 0 rgba(16, 185, 129, 0.5);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--bg-card);
+    border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: var(--bg-hover);
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@media (max-width: 639px) {
+    .btn-responsive-full {
+        width: 100%;
+    }
+    
+    .btn-responsive-stack {
+        flex-direction: column;
+    }
+}

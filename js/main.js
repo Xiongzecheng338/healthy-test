@@ -1003,10 +1003,26 @@ class LabApp {
     }
 }
 
+// 新功能模块
+let newFeatures;
+
+// 扩展功能模块
+let extendedFeatures;
+
 // 初始化应用
 let labApp;
 window.addEventListener('DOMContentLoaded', () => {
     labApp = new LabApp();
+    
+    // 初始化新功能模块
+    if (typeof NewFeatures !== 'undefined') {
+        newFeatures = new NewFeatures(labApp);
+    }
+    
+    // 初始化扩展功能模块
+    if (typeof ExtendedFeatures !== 'undefined') {
+        extendedFeatures = new ExtendedFeatures(labApp);
+    }
 });
 
 // 窗口卸载时清理
