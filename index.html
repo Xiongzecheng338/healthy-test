@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Healthy-test - 专业级健康测试平台，探索生命科学的无限可能">
+    <meta name="theme-color" content="#0ea5e9">
     <title>Healthy-test | 健康测试平台</title>
+    
+    <!-- 设计系统样式 -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- 预连接优化 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <!-- 动态背景系统 -->
+    <div class="background-container">
+        <div class="gradient-mesh"></div>
+        <div class="grid-pattern"></div>
+        <div class="glow-orb primary"></div>
+        <div class="glow-orb secondary"></div>
+        <div class="glow-orb accent"></div>
+    </div>
+    
     <!-- 粒子背景 -->
     <div class="particles-container" id="particles"></div>
     
@@ -1076,13 +1096,26 @@
         </div>
     </div>
 
+    <!-- Toast 通知容器 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- 核心数据 -->
     <script src="js/data/foods.js"></script>
     <script src="js/data/organs.js"></script>
     <script src="js/data/quizzes.js"></script>
     <script src="js/data/pets.js"></script>
     <script src="js/data/challenges.js"></script>
+    
+    <!-- 视觉系统 -->
+    <script src="js/visual/ParticleSystem.js"></script>
+    <script src="js/visual/LoadingManager.js"></script>
+    <script src="js/visual/InteractionManager.js"></script>
+    
+    <!-- 功能模块 -->
     <script src="js/modules/newFeatures.js"></script>
     <script src="js/modules/extendedFeatures.js"></script>
+    
+    <!-- 主应用 -->
     <script type="module" src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,1038 @@
+/* ============================================
+   Healthy-test Components v4.0
+   UI组件样式库
+   ============================================ */
+
+/* ============================================
+   1. 推荐卡片组件
+   ============================================ */
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-5);
+}
+
+.rec-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.rec-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--duration-300) var(--ease-out);
+}
+
+.rec-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.rec-card:hover::before {
+  transform: scaleY(1);
+}
+
+.rec-image {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-md);
+}
+
+.rec-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.rec-desc {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-sm);
+}
+
+.rec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.rec-tag {
+  background: var(--color-gray-100);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  transition: var(--transition-fast);
+}
+
+.rec-card:hover .rec-tag {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+/* ============================================
+   2. 名言轮播组件
+   ============================================ */
+.quote-carousel {
+  background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-accent-50) 100%);
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  margin-top: var(--space-6);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-carousel::before {
+  content: '"';
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-6);
+  font-size: 80px;
+  font-family: Georgia, serif;
+  color: var(--color-primary-200);
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: var(--text-xl);
+  font-style: italic;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+}
+
+.quote-author::before {
+  content: '— ';
+}
+
+/* ============================================
+   3. 人体解剖组件
+   ============================================ */
+.body-visual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.body-svg {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.body-svg .body-part {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.body-svg .body-part:hover {
+  filter: brightness(1.1);
+  transform-origin: center;
+}
+
+.organ-info {
+  flex: 1;
+  min-width: 300px;
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+}
+
+#organTitle {
+  margin-bottom: var(--space-3);
+  color: var(--color-primary-600);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+#organDesc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   4. 像素人体组件
+   ============================================ */
+.pixel-body-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.pixel-body {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.organ-info-panel {
+  flex: 1;
+  min-width: 300px;
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+}
+
+#pixelOrganTitle {
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-600);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+#pixelOrganDesc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.organ-metrics {
+  margin-top: var(--space-4);
+}
+
+/* ============================================
+   5. 健康提醒组件
+   ============================================ */
+.reminder-section {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.reminder-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.reminder-section h3 {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+
+.reminder-setting {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.reminder-setting label {
+  min-width: 100px;
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.reminder-status {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   6. 卡路里计算器组件
+   ============================================ */
+.calorie-calculator {
+  margin-top: var(--space-5);
+}
+
+.calorie-calculator .input-group {
+  margin-bottom: var(--space-4);
+}
+
+.calorie-calculator .btn {
+  margin-bottom: var(--space-5);
+}
+
+.result {
+  background: var(--color-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--color-border);
+}
+
+.calorie-needs h3 {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+
+/* ============================================
+   7. 化学元素周期表组件
+   ============================================ */
+.periodic-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  justify-content: center;
+}
+
+.element {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  background: var(--color-surface);
+}
+
+.element:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-400);
+}
+
+.element .atomic-number {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.element .symbol {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+.element .name {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+
+/* 元素类别颜色 */
+.element.alkali { background: var(--color-danger-50); border-color: var(--color-danger-200); }
+.element.alkaline { background: var(--color-warning-50); border-color: var(--color-warning-200); }
+.element.transition { background: var(--color-primary-50); border-color: var(--color-primary-200); }
+.element.nonmetal { background: var(--color-secondary-50); border-color: var(--color-secondary-200); }
+.element.metalloid { background: var(--color-accent-50); border-color: var(--color-accent-200); }
+
+/* ============================================
+   8. 消化系统时间轴组件
+   ============================================ */
+.digestion-timeline {
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+.digestion-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-primary);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: var(--space-6);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-8) + 8px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary-500);
+  border-radius: 50%;
+  border: 2px solid var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-content {
+  background: var(--color-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-light);
+}
+
+.timeline-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-time {
+  font-size: var(--text-sm);
+  color: var(--color-primary-600);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   9. 知识问答组件
+   ============================================ */
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-progress {
+  flex: 1;
+  height: 8px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  margin: 0 var(--space-4);
+  overflow: hidden;
+}
+
+.quiz-progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-300) var(--ease-out);
+}
+
+.quiz-score {
+  font-weight: var(--font-bold);
+  color: var(--color-primary-600);
+}
+
+.quiz-question {
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--color-border-light);
+}
+
+.quiz-question-text {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.quiz-option {
+  padding: var(--space-4);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+.quiz-option:hover {
+  border-color: var(--color-primary-400);
+  background: var(--color-primary-50);
+}
+
+.quiz-option.selected {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-100);
+}
+
+.quiz-option.correct {
+  border-color: var(--color-secondary-500);
+  background: var(--color-secondary-100);
+}
+
+.quiz-option.incorrect {
+  border-color: var(--color-danger-500);
+  background: var(--color-danger-100);
+}
+
+/* ============================================
+   10. 食物百科组件
+   ============================================ */
+.food-search {
+  margin-bottom: var(--space-6);
+}
+
+.food-search input {
+  width: 100%;
+  padding: var(--space-4);
+  font-size: var(--text-base);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  transition: var(--transition-fast);
+}
+
+.food-search input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+  outline: none;
+}
+
+.food-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.food-category {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.food-category:hover,
+.food-category.active {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.food-card {
+  background: var(--color-surface);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.food-name {
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.food-calories {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-600);
+  margin-bottom: var(--space-3);
+}
+
+.food-calories span {
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text-secondary);
+}
+
+.food-nutrients {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   11. 健康追踪组件
+   ============================================ */
+.tracker-tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+}
+
+.tracker-tab {
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tracker-tab:hover {
+  background: var(--color-gray-200);
+}
+
+.tracker-tab.active {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.tracker-content {
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+}
+
+.tracker-stat {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.tracker-stat-value {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-600);
+  margin-bottom: var(--space-2);
+}
+
+.tracker-stat-label {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.tracker-progress {
+  margin-bottom: var(--space-6);
+}
+
+.tracker-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.tracker-progress-bar {
+  height: 12px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.tracker-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-500) var(--ease-out);
+}
+
+/* ============================================
+   12. 虚拟宠物组件
+   ============================================ */
+.pet-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.pet-display {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.pet-avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto var(--space-6);
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.pet-name {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.pet-level {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.pet-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.pet-stat {
+  background: var(--color-gray-50);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+}
+
+.pet-stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.pet-stat-bar {
+  height: 8px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.pet-stat-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--duration-300) var(--ease-out);
+}
+
+.pet-stat-fill.health { background: var(--color-secondary-500); }
+.pet-stat-fill.energy { background: var(--color-warning-500); }
+.pet-stat-fill.happiness { background: var(--color-accent-500); }
+.pet-stat-fill.exp { background: var(--color-primary-500); }
+
+.pet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.pet-action {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pet-action:hover {
+  background: var(--color-primary-500);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   13. 健康挑战组件
+   ============================================ */
+.challenge-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.challenge-filter {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.challenge-filter:hover,
+.challenge-filter.active {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.challenge-card {
+  background: var(--color-surface);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.challenge-card.easy::before { background: var(--color-secondary-500); }
+.challenge-card.medium::before { background: var(--color-warning-500); }
+.challenge-card.hard::before { background: var(--color-danger-500); }
+
+.challenge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.challenge-icon {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+
+.challenge-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.challenge-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-relaxed);
+}
+
+.challenge-progress {
+  margin-bottom: var(--space-3);
+}
+
+.challenge-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.challenge-progress-bar {
+  height: 8px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.challenge-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.challenge-reward {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-warning-600);
+  font-weight: var(--font-medium);
+}
+
+/* ============================================
+   14. 成就徽章组件
+   ============================================ */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-4);
+}
+
+.achievement {
+  text-align: center;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-fast);
+}
+
+.achievement:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.achievement.locked {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.achievement-icon {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-2);
+}
+
+.achievement-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   15. Toast 通知组件
+   ============================================ */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-notification);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.toast {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border-left: 4px solid var(--color-primary-500);
+  animation: toastSlideIn var(--duration-300) var(--ease-out);
+  max-width: 400px;
+}
+
+.toast.success { border-left-color: var(--color-secondary-500); }
+.toast.warning { border-left-color: var(--color-warning-500); }
+.toast.error { border-left-color: var(--color-danger-500); }
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   16. 响应式调整
+   ============================================ */
+@media (max-width: 768px) {
+  .recommendation-grid,
+  .food-grid,
+  .challenge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .quiz-progress {
+    margin: 0;
+    width: 100%;
+  }
+
+  .pet-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .toast-container {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+
+  .toast {
+    max-width: none;
+  }
+}
